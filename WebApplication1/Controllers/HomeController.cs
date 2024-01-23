@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Models;
 
@@ -15,7 +16,13 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        string pathData = "Date/Collection.json";
+
+        using var jsonFile = System.IO.File.OpenRead(pathData);
+
+        var items = JsonSerializer.Deserialize<List<PlaceHolderItem>>(jsonFile);
+
+        return View(items);     
     }
 
     public IActionResult Privacy()
