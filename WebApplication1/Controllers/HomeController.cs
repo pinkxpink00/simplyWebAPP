@@ -16,7 +16,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        string pathData = "Date/Collection.json";
+        string pathData = "/home/german/RiderProjects/WebApplication1/WebApplication1/Data/Collection.json";
 
         using var jsonFile = System.IO.File.OpenRead(pathData);
 
