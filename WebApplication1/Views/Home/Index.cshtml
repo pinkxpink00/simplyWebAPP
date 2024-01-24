@@ -1,8 +1,17 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<WebApplication1.Models.PlaceHolderItem>
+
+@{
+    ViewData["Title"] = "HomePage";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div class="page-title">
+    <PageTitle>My favorite places 🌄</PageTitle>
+</div>
+<div class="place-columns">
+    @foreach (var item in Model)
+    {
+        @Html.Partial("_PlaceCard", item)
+        ;
+    }
 </div>
